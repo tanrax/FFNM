@@ -2,6 +2,11 @@
 
 Simple plugin to avoid writing Javascript in trivial tasks.
 
+<p align="center">
+  <a href="#user-content-english">English</a>
+  <a href="#user-content-spanishespañol">Spanish/Español</a>
+</p>
+
 ---
 
 ## Spanish/Español
