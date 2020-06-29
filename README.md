@@ -4,8 +4,8 @@ Simple plugin to avoid writing Javascript in trivial tasks.
 
 ## Documentation
 
-[English](#user-content-english)
-[Spanish/Español](#user-content-spanishespañol)
+- [English](#user-content-english)
+- [Spanish/Español](#user-content-spanishespañol)
 
 ---
 
