@@ -1,3 +1,4 @@
+
 //===
 // VARIABLES
 //===
@@ -8,13 +9,16 @@ enum EVENTS {'i-click', 'i-scroll-up', 'i-scroll-down', 'i-hover'}
 //===
 function validateSyntax(): boolean {
 
-    // Check every event
-    let eventsKeys = Object.keys(EVENTS).filter(key => !isNaN(Number(EVENTS[key])));
-    eventsKeys.forEach((event) => {
-        let ddd = document.querySelector(`[${event}]`).length
-        console.log(ddd)
-    })
-    return true
+    // Get every items from EVENTS
+    let eventsKeys: string[] = R.filter(key => !isNaN(Number(EVENTS[key])), Object.keys(EVENTS));
+
+    // Check all event syntax
+    return eventsKeys.map((event) => {
+        return R.map((element) => {
+            console.log(element.getAttribute(event))
+            return /^${event}/.test(element.getAttribute(event))
+        }, document.querySelectorAll(`[${event}]`)).every(item => item)
+    }).every(event => event)
 }
 
 
