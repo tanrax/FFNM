@@ -81,3 +81,17 @@ class:remove('show', '#menu')
 ```javascript
 class:toggle('show', '#menu')
 ```
+
+## Development
+
+### Build
+
+```javascript
+tsc --outFile dist/ffnm.min.js src/core.ts
+```
+
+### Watch mode
+
+```javascript
+tsc --watch --outFile dist/ffnm.min.js src/core.ts
+```
