@@ -84,14 +84,20 @@ class:toggle('show', '#menu')
 
 ## Development
 
+### Install
+
+```javascript
+npm i
+```
+
 ### Build
 
 ```javascript
-tsc --outFile dist/ffnm.min.js src/core.ts
+gulp
 ```
 
 ### Watch mode
 
 ```javascript
-tsc --watch --outFile dist/ffnm.min.js src/core.ts
+gulp dev
 ```
