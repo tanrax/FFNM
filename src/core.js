@@ -2,7 +2,10 @@
 //===
 // VARIABLES
 //===
-const EVENTS = ['i-click', 'i-scroll-up', 'i-scroll-down', 'i-hover'];
+const EVENTS = ['i-click', 'i-view', 'i-scroll-up', 'i-scroll-down', 'i-hover'];
+const FUNCTION_TREE = {
+    'class': ['add', 'remove', 'toggle']
+};
 
 //===
 // FUNCTIONS
@@ -13,9 +16,15 @@ function validateSyntax() {
 
     // Check all event syntax
     return EVENTS.map((event) => {
+        // Check element FUNCTION_TREE
         return R.map((element) => {
-            console.log(element.getAttribute(event));
-            return /^${event}/.test(element.getAttribute(event));
+            // Check KEY FUNCTION_TREE
+            return R.map((key) => {
+                // Check METHODS FUNCTION_TREE
+                return R.map((method) => {
+                    return RegExp(`^${key}:${method}\\('\\w+', *'[#,.,a-zA-Z]\\w*'\\)$`).test(element.getAttribute(event));
+                }, FUNCTION_TREE[key]).some(method => method);
+            }, Object.keys(FUNCTION_TREE)).every(key => key);
         }, document.querySelectorAll(`[${event}]`)).every(item => item);
     }).every(event => event);
 }
@@ -29,4 +38,4 @@ function validateSyntax() {
 //===
 // INIT
 //===
-validateSyntax();
+console.log("EStabien " + validateSyntax());
