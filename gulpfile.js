@@ -2,9 +2,8 @@
 // IMPORTS
 //===
 const { series, parallel, src, dest, watch } = require('gulp');
-const babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
-const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify-es').default;
 const concat = require('gulp-concat');
 
 //===
@@ -23,9 +22,6 @@ function js(cb) {
     return src([SRC_PATH + 'core.js'])
         .pipe(sourcemaps.init())
         .pipe(concat(DIST_JS))
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
         .pipe(dest(DIST_PATH));

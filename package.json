@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/tanrax/FFNM/issues"
   },
-  "homepage": "https://github.com/tanrax/FFNM#readme"
+  "homepage": "https://github.com/tanrax/FFNM#readme",
+  "devDependencies": {
+    "gulp-uglify-es": "^2.0.0"
+  }
 }

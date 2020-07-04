@@ -16,7 +16,7 @@ Simple plugin to avoid writing Javascript in trivial tasks.
 Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
-<script defer src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.0.0/ffnm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.0.0/ffnm.min.js"></script>
 ```
 
 ### Ejemplos de uso
