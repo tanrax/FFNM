@@ -19,12 +19,19 @@ function validateSyntax() {
         // Check element FUNCTION_TREE
         return [...document.querySelectorAll(`[${event}]`)].map((element) => {
             // Check KEY FUNCTION_TREE
-            return Object.keys(FUNCTION_TREE).map((key) => {
+            let checked = Object.keys(FUNCTION_TREE).map((key) => {
                 // Check METHODS FUNCTION_TREE
                 return FUNCTION_TREE[key].map((method) => {
                     return RegExp(`^${key}:${method}\\('\\w+', *'[#,.,a-zA-Z]\\w*'\\)$`).test(element.getAttribute(event));
                 }).some(method => method);
             }).every(key => key);
+            // Notify error
+            if(!checked) {
+                console.error('FFNM: Bad syntax');
+                console.error(element);
+            }
+
+            return checked;
         }).every(item => item);
     }).every(event => event);
 }
