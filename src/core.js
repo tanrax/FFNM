@@ -17,15 +17,15 @@ function validateSyntax() {
     // Check all event syntax
     return EVENTS.map((event) => {
         // Check element FUNCTION_TREE
-        return R.map((element) => {
+        return [...document.querySelectorAll(`[${event}]`)].map((element) => {
             // Check KEY FUNCTION_TREE
-            return R.map((key) => {
+            return Object.keys(FUNCTION_TREE).map((key) => {
                 // Check METHODS FUNCTION_TREE
-                return R.map((method) => {
+                return FUNCTION_TREE[key].map((method) => {
                     return RegExp(`^${key}:${method}\\('\\w+', *'[#,.,a-zA-Z]\\w*'\\)$`).test(element.getAttribute(event));
-                }, FUNCTION_TREE[key]).some(method => method);
-            }, Object.keys(FUNCTION_TREE)).every(key => key);
-        }, document.querySelectorAll(`[${event}]`)).every(item => item);
+                }).some(method => method);
+            }).every(key => key);
+        }).every(item => item);
     }).every(event => event);
 }
 

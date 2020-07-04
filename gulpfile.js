@@ -13,10 +13,6 @@ const concat = require('gulp-concat');
 const SRC_PATH = 'src/';
 const DIST_PATH = 'dist/';
 const DIST_JS = 'ffnm.min.js';
-const SRC_JS_VENDORS = [
-    './node_modules/ramda/dist/ramda.min.js'
-];
-
 
 //===
 // TASKS
@@ -24,7 +20,7 @@ const SRC_JS_VENDORS = [
 
 // JS concat + sourcemaps + babel + min
 function js(cb) {
-    return src(SRC_JS_VENDORS.concat([SRC_PATH + 'core.js']))
+    return src([SRC_PATH + 'core.js'])
         .pipe(sourcemaps.init())
         .pipe(concat(DIST_JS))
         .pipe(babel({
