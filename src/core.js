@@ -12,8 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //===
     // FUNCTIONS
     //===
+
     /**
-     * Method that validates syntax and reports. 
+     * Method that validates syntax and reports.
      * return - Bool
      */
     function validateSyntax() {
@@ -42,6 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }).every(event => event);
     }
 
+    /**
+     * Method add events click
+     * return void
+     */
     function addEventClick() {
     }
 
