@@ -48,6 +48,35 @@ document.addEventListener('DOMContentLoaded', () => {
      * return void
      */
     function addEventClick() {
+        let eventClick = 'i-click';
+        return [...document.querySelectorAll(`[${eventClick}]`)].forEach((element) => {
+            let params = splitParams(element, eventClick);
+            switch(params.functionParent) {
+                case 'class':
+                    switch(params.functionChild) {
+                        case 'add':
+                            [...document.querySelectorAll(params.target)].forEach((item) => item.classList.add(params.value));
+                            break;
+                        case 'remove':
+                            [...document.querySelectorAll(params.target)].forEach((item) => item.classList.remove(params.value));
+                            break;
+                        case 'toggle':
+                            [...document.querySelectorAll(params.target)].forEach((item) => item.classList.toggle(params.value));
+                            break;
+                    }
+                break;
+            }
+        };
+    }
+
+    /**
+     * Method return params
+     * return JSON - {'functionParent': '', 'functionChild': '', 'value': '', 'target': ''}
+     * example - i-click="class:add('show', '#menu')"
+     * return {'functionParent': 'class', 'functionChild': 'add', 'value': 'show', 'target': '#menu'}
+     */
+    function splitParams(element, attribute) {
+        return {'functionParent': '', 'functionChild': '', 'value': '', 'target': ''};
     }
 
 
@@ -55,6 +84,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // INIT
     //===
     validateSyntax();
-
-
+    addEventClick();
 });
