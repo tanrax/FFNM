@@ -1,5 +1,7 @@
 # FFNM (Front-End for the next master)
 
+![example](media/example.png)
+
 Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **1Kb**!
 
 ## DEMOS
