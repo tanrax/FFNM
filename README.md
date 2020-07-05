@@ -2,6 +2,10 @@
 
 Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **1Kb**!
 
+## DEMOS
+
+[Click](https://codepen.io/androsfenollosa/pen/dyGdRVE)
+
 ## Documentation
 
 - [English](#user-content-english)
