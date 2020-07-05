@@ -1,6 +1,6 @@
 # FFNM (Front-End for the next master)
 
-Simple utility to avoid writing Javascript when working with classes.
+Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **1Kb**!
 
 ## Documentation
 
@@ -16,7 +16,7 @@ Simple utility to avoid writing Javascript when working with classes.
 Add to your `<head>` the following tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.0.0/ffnm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.0.0/dist/ffnm.min.js"></script>
 ```
 
 ### Examples
