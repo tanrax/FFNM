@@ -1,11 +1,65 @@
 # FFNM (Front-End for the next master)
 
-Simple plugin to avoid writing Javascript in trivial tasks.
+Simple utility to avoid writing Javascript when working with classes.
 
 ## Documentation
 
 - [English](#user-content-english)
 - [Spanish/Español](#user-content-spanishespañol)
+
+---
+
+## English
+
+### Install
+
+Add to your `<head>` the following tag.
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.0.0/ffnm.min.js"></script>
+```
+
+### Examples
+
+#### Click
+
+##### Add the class `show` to the `#nav` selector when the button is pressed.
+
+```html
+<button i-click="class:add('show', '#nav')">open</button>
+```
+
+##### Remove the `show` class from the `#nav` selector when the button is pressed.
+
+```html
+<button i-click="class:remove('show', '#nav')">close</button>
+```
+
+##### Switch the `show` class to the `#nav` selector when the button is pressed.
+
+```html
+<button i-click="class:toggle('show', '#nav')">view</button>
+```
+
+#### Classes without events
+
+##### Add the class `show` to the `#nav` selector
+
+```javascript
+class:add('show', '#nav')
+```
+
+##### Remove the `show` class from the `#nav` selector
+
+```javascript
+class:remove('show', '#nav')
+```
+
+##### Switch the class `show` to the `#nav` selector
+
+```javascript
+class:toggle('show', '#nav')
+```
 
 ---
 
@@ -60,6 +114,7 @@ class:remove('show', '#menu')
 ```javascript
 class:toggle('show', '#menu')
 ```
+---
 
 ## Development
 
