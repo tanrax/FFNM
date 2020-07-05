@@ -1,7 +1,6 @@
-
-test.html
 node_modules/
 dist/ffnm.min.js.map
 package-lock.json
-dist/.DS_Store
-src/.#core.js
+**/.DS_Store
+*/.#*
+.idea/

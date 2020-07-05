@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Test syntax</title>
+        <script src="../dist/FFNM.min.js"></script>
+        <style>
+         .nav {
+             position: fixed;
+             bottom: 0;
+             left: 0;
+             right: 0;
+             height: 10rem;
+             background: orange;
+             transition: 1s;
+             transform: translateY(10rem);
+         }
+         .show {
+             transform: translateY(0);
+         }
+        </style>
+    </head>
+    <body>
+        <nav class="nav" id="nav">Mi nav</nav>
+        <button i-click="class:add('show', '#nav')">add</button>
+        <button i-click="class:remove('show', '#nav')">remove</button>
+        <button i-click="class:toggle('show', '#nav')">toggle</button>
+    </body>
+</html>

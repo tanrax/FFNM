@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //===
     // VARIABLES
     //===
-    const EVENTS = ['i-click', 'i-view', 'i-scroll-up', 'i-scroll-down', 'i-hover'];
+    const EVENTS = ['i-click', 'i-scroll-up', 'i-scroll-down'];
     const FUNCTION_TREE = {
         'class': ['add', 'remove', 'toggle']
     };
@@ -53,20 +53,24 @@ document.addEventListener('DOMContentLoaded', () => {
             let params = splitParams(element, eventClick);
             switch(params.functionParent) {
                 case 'class':
-                    switch(params.functionChild) {
-                        case 'add':
-                            [...document.querySelectorAll(params.target)].forEach((item) => item.classList.add(params.value));
-                            break;
-                        case 'remove':
-                            [...document.querySelectorAll(params.target)].forEach((item) => item.classList.remove(params.value));
-                            break;
-                        case 'toggle':
-                            [...document.querySelectorAll(params.target)].forEach((item) => item.classList.toggle(params.value));
-                            break;
-                    }
+                    [...document.querySelectorAll(params.target)].forEach((item) => {
+                        element.addEventListener('click', () => {
+                            switch(params.functionChild) {
+                                case 'add':
+                                    item.classList.add(params.value);
+                                    break;
+                                case 'remove':
+                                    item.classList.remove(params.value);
+                                    break;
+                                case 'toggle':
+                                    item.classList.toggle(params.value);
+                                    break;
+                            }
+                        });
+                    });
                 break;
             }
-        };
+        });
     }
 
     /**
@@ -76,7 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
      * return {'functionParent': 'class', 'functionChild': 'add', 'value': 'show', 'target': '#menu'}
      */
     function splitParams(element, attribute) {
-        return {'functionParent': '', 'functionChild': '', 'value': '', 'target': ''};
+        let params = element.getAttribute(attribute);
+        let functionParent = RegExp(`^(\\w+):`).exec(params)[1];
+        let functionChild = RegExp(`:(\\w+)\\(`).exec(params)[1];
+        let value = RegExp(`\\(\'(\\w+)\',`).exec(params)[1];
+        let target = RegExp(`, *\'([#,.,a-zA-Z]\\w*)\'\\)`).exec(params)[1];
+        return {'functionParent': functionParent, 'functionChild': functionChild, 'value': value, 'target': target};
     }
 
 
