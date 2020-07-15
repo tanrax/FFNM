@@ -2,7 +2,7 @@
 
 ![example](media/example.png)
 
-Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **1Kb**!
+Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **1,7 Kb**!
 
 ## DEMOS
 
@@ -29,22 +29,43 @@ Add to your `<head>` the following tag.
 
 #### Click
 
+##### Add the class `press` to `button` when the button is pressed.
+
+```html
+<button i-click="class:add('press')">open</button>
+```
+
+##### Remove the class `press` to `button` when the button is pressed.
+
+```html
+<button i-click="class:remove('press')">close</button>
+```
+
+##### Switch the classs `show` to `button` when the button is pressed.
+
+```html
+<button i-click="class:toggle('show')">view</button>
+```
+
 ##### Add the class `show` to the `#nav` selector when the button is pressed.
 
 ```html
 <button i-click="class:add('show', '#nav')">open</button>
+<nav id="nav"></nav>
 ```
 
 ##### Remove the `show` class from the `#nav` selector when the button is pressed.
 
 ```html
 <button i-click="class:remove('show', '#nav')">close</button>
+<nav id="nav" class="show"></nav>
 ```
 
 ##### Switch the `show` class to the `#nav` selector when the button is pressed.
 
 ```html
 <button i-click="class:toggle('show', '#nav')">view</button>
+<nav id="nav" class="show"></nav>
 ```
 
 #### Scroll up
@@ -112,22 +133,43 @@ Añade a tu `<head>` la siguiente etiqueta.
 
 #### Clic
 
+##### Añadir la clase `apretado` a `button` cuando sea pulsado.
+
+```html
+<button i-click="class:add('apretado')">Apreta</button>
+```
+
+##### Quitar la clase `apretado` a `button` cuando sea pulsado.
+
+```html
+<button i-click="class:remove('apretado')">cerrar</button>
+```
+
+##### Intercambiar la clase `apretado` a `button` cuando sea pulsado.
+
+```html
+<button i-click="class:toggle('apretado')">ver</button>
+```
+
 ##### Añadir la clase `show` al selector `#menu` cuando sea pulsado el botón.
 
 ```html
 <button i-click="class:add('show', '#menu')">abrir</button>
+<nav id="menu"></nav>
 ```
 
 ##### Quitar la clase `show` al selector `#menu` cuando sea pulsado el botón.
 
 ```html
 <button i-click="class:remove('show', '#menu')">cerrar</button>
+<nav id="menu" class="show"></nav>
 ```
 
 ##### Intercambiar la clase `show` al selector `#menu` cuando sea pulsado el botón.
 
 ```html
 <button i-click="class:toggle('show', '#menu')">ver</button>
+<nav id="menu" class="show"></nav>
 ```
 
 #### Subir scroll
