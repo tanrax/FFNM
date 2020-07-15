@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'class': ['add', 'remove', 'toggle']
     };
     let elementsValidates = [];
+    let lastScrollTop = undefined;
 
     //===
     // FUNCTIONS
@@ -44,7 +45,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Method add events click
+     * Method return params
+     * return JSON - {'functionParent': '', 'functionChild': '', 'value': '', 'target': ''}
+     * example - i-click="class:add('show', '#menu')"
+     * return {'functionParent': 'class', 'functionChild': 'add', 'value': 'show', 'target': '#menu'}
+     */
+    function splitParams(element, attribute) {
+        let params = element.getAttribute(attribute);
+        let functionParent = RegExp(`^(\\w+):`).exec(params)[1];
+        let functionChild = RegExp(`:(\\w+)\\(`).exec(params)[1];
+        let resultValue = RegExp(`\\(\'(\\w+)\',`).exec(params);
+        let value = resultValue !== null ? resultValue.exec(params)[1] : undefined;
+        let resultTarget = RegExp(`, *\'([#,.,a-zA-Z]\\w*)\'\\)`).exec(params);
+        let target = resultTarget !== null ? resultTarget.exec(params)[1] : undefined;
+        return {'functionParent': functionParent, 'functionChild': functionChild, 'value': value, 'target': target};
+    }
+
+    /**
+     * Method add events i-click
      * return void
      */
     function addEventClick() {
@@ -74,24 +92,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Method return params
-     * return JSON - {'functionParent': '', 'functionChild': '', 'value': '', 'target': ''}
-     * example - i-click="class:add('show', '#menu')"
-     * return {'functionParent': 'class', 'functionChild': 'add', 'value': 'show', 'target': '#menu'}
+     * Method add events i-scroll
+     * return void
      */
-    function splitParams(element, attribute) {
-        let params = element.getAttribute(attribute);
-        let functionParent = RegExp(`^(\\w+):`).exec(params)[1];
-        let functionChild = RegExp(`:(\\w+)\\(`).exec(params)[1];
-        let value = RegExp(`\\(\'(\\w+)\',`).exec(params)[1];
-        let target = RegExp(`, *\'([#,.,a-zA-Z]\\w*)\'\\)`).exec(params)[1];
-        return {'functionParent': functionParent, 'functionChild': functionChild, 'value': value, 'target': target};
+    function addEventScroll() {
+        let eventScrollDown = 'i-scroll-down';
+        let eventScrollUp = 'i-scroll-up';
+        window.addEventListener("scroll", () => {
+            let posScroll = window.pageYOffset || document.documentElement.scrollTop;
+            // Scroll down
+            [...document.querySelectorAll(`[${eventScrollDown}]`)].forEach((element) => {
+                if (posScroll > lastScrollTop) {
+                    let params = splitParams(element, eventScrollDown);
+                    switch(params.functionParent) {
+                    case 'class':
+                        switch(params.functionChild) {
+                        case 'add':
+                            element.classList.add(params.value);
+                            break;
+                        case 'remove':
+                            element.classList.remove(params.value);
+                            break;
+                        }
+                        break;
+                    }
+                }
+            });
+            // Scroll up
+            [...document.querySelectorAll(`[${eventScrollUp}]`)].forEach((element) => {
+                if (posScroll <= lastScrollTop) {
+                    let params = splitParams(element, eventScrollUp);
+                    switch(params.functionParent) {
+                    case 'class':
+                        switch(params.functionChild) {
+                        case 'add':
+                            element.classList.add(params.value);
+                            break;
+                        case 'remove':
+                            element.classList.remove(params.value);
+                            break;
+                        }
+                        break;
+                    }
+                }
+            });
+            lastScrollTop = posScroll <= 0 ? 0 : posScroll; // For Mobile or negative scrolling
+        }, false);
     }
-
 
     //===
     // INIT
     //===
     validateSyntax();
     addEventClick();
+    addEventScroll();
 });

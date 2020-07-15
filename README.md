@@ -47,6 +47,35 @@ Add to your `<head>` the following tag.
 <button i-click="class:toggle('show', '#nav')">view</button>
 ```
 
+#### Scroll up
+
+##### Add the class `show` to `nav` when the scroll goes up.
+
+```html
+<nav i-scroll-up="class:add('show')"></nav>
+```
+
+##### Remove the `show` class from `nav` when the scroll goes up.
+
+```html
+<nav i-scroll-up="class:remove('show')"></nav>
+```
+
+#### Scroll down
+
+##### Add the class `show` to `nav` when the scroll down.
+
+```html
+<nav i-scroll-down="class:add('show')"></nav>
+```
+
+##### Remove the `show` class from `nav` when the scroll down.
+
+```html
+<nav i-scroll-down="class:remove('show')"></nav>
+```
+
+
 #### Classes without events
 
 ##### Add the class `show` to the `#nav` selector
@@ -100,6 +129,35 @@ Añade a tu `<head>` la siguiente etiqueta.
 ```html
 <button i-click="class:toggle('show', '#menu')">ver</button>
 ```
+
+#### Subir scroll
+
+##### Añadir la clase `show` al selector `nav` cuando el scroll sube.
+
+```html
+<nav i-scroll-up="class:add('show')"></nav>
+```
+
+##### Quitar la clase `show` al selector `nav` cuando el scroll sube.
+
+```html
+<nav i-scroll-up="class:remove('show')"></nav>
+```
+
+#### Bajar scroll
+
+##### Añadir la clase `show` al selector `nav` cuando el scroll baja.
+
+```html
+<nav i-scroll-down="class:add('show')"></nav>
+```
+
+##### Quitar la clase `show` al selector `nav` cuando el scroll baja.
+
+```html
+<nav i-scroll-down="class:remove('show')"></nav>
+```
+
 
 #### Clases sin eventos
 
