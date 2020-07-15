@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let checked = Object.keys(FUNCTION_TREE).map((key) => {
                     // Check METHODS FUNCTION_TREE
                     return FUNCTION_TREE[key].map((method) => {
-                        return RegExp(`^${key}:${method}\\('\\w+', *'[#,.,a-zA-Z]\\w*'\\)$`).test(element.getAttribute(event));
+                        return RegExp(`^${key}:${method}\\('\\w+'(, *'[#,.,a-zA-Z]\\w*')?\\)$`).test(element.getAttribute(event));
                     }).some(method => method);
                 }).every(key => key);
                 if(checked) {
@@ -54,10 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let params = element.getAttribute(attribute);
         let functionParent = RegExp(`^(\\w+):`).exec(params)[1];
         let functionChild = RegExp(`:(\\w+)\\(`).exec(params)[1];
-        let resultValue = RegExp(`\\(\'(\\w+)\',`).exec(params);
-        let value = resultValue !== null ? resultValue.exec(params)[1] : undefined;
-        let resultTarget = RegExp(`, *\'([#,.,a-zA-Z]\\w*)\'\\)`).exec(params);
-        let target = resultTarget !== null ? resultTarget.exec(params)[1] : undefined;
+        let value = RegExp(`\\(\'(\\w+)\',?`).exec(params)[1];
+        let resultTarget = RegExp(`, *\'([#,.,a-zA-Z]\\w*)\'\\)`);
+        let target = resultTarget.exec(params) !== null ? resultTarget.exec(params)[1] : undefined;
         return {'functionParent': functionParent, 'functionChild': functionChild, 'value': value, 'target': target};
     }
 
@@ -71,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let params = splitParams(element, eventClick);
             switch(params.functionParent) {
                 case 'class':
-                    [...document.querySelectorAll(params.target)].forEach((item) => {
+                [...document.querySelectorAll(params.target)].concat(element).forEach((item) => {
                         element.addEventListener('click', () => {
                             switch(params.functionChild) {
                                 case 'add':
