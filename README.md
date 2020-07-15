@@ -22,7 +22,7 @@ Simple utility to **avoid writing Javascript** when working with **classes**. It
 Add to your `<head>` the following tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.0.0/dist/ffnm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.1.0/dist/ffnm.min.js"></script>
 ```
 
 ### Examples
@@ -126,7 +126,7 @@ class:toggle('show', '#nav')
 Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.0.0/ffnm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.1.0/dist/ffnm.min.js"></script>
 ```
 
 ### Ejemplos de uso
