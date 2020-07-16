@@ -1,8 +1,42 @@
 # FFNM (Front-End for the next master)
 
-![example](media/example.png)
-
 Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **1,7 Kb**!
+
+Simplifies the click
+
+![Self click](media/self-click.png)
+
+<p align="center">
+  👇👇👇👇👇👇
+</p>
+ 
+![Self clicked](media/self-clicked.png)
+
+Modify others
+ 
+![Other click](media/other-click.png)
+
+<p align="center">
+  👇👇👇👇👇👇
+</p>
+ 
+![Other clicked](media/other-clicked.png)
+
+Simplifies the scroll
+
+![Other click](media/scroll.png)
+
+<p align="center">
+  👇👇👇👇👇👇
+</p>
+ 
+Scroll up
+
+![Other clicked](media/scroll-up.png)
+
+Scroll down
+
+![Other clicked](media/scroll-down.png)
 
 ## DEMOS
 
@@ -96,27 +130,6 @@ Add to your `<head>` the following tag.
 <nav i-scroll-down="class:remove('show')"></nav>
 ```
 
-
-#### Classes without events
-
-##### Add the class `show` to the `#nav` selector
-
-```javascript
-class:add('show', '#nav')
-```
-
-##### Remove the `show` class from the `#nav` selector
-
-```javascript
-class:remove('show', '#nav')
-```
-
-##### Switch the class `show` to the `#nav` selector
-
-```javascript
-class:toggle('show', '#nav')
-```
-
 ---
 
 ## Spanish/Español
@@ -200,26 +213,6 @@ Añade a tu `<head>` la siguiente etiqueta.
 <nav i-scroll-down="class:remove('show')"></nav>
 ```
 
-
-#### Clases sin eventos
-
-##### Añadir la clase `show` al selector `#menu`
-
-```javascript
-class:add('show', '#menu')
-```
-
-##### Quitar la clase `show` al selector `#menu`
-
-```javascript
-class:remove('show', '#menu')
-```
-
-##### Intercambiar la clase `show` al selector `#menu`
-
-```javascript
-class:toggle('show', '#menu')
-```
 ---
 
 ## Development
