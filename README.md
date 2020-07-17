@@ -1,13 +1,20 @@
 # FFNM (Front-End for the next master)
 
+``` html
+<button i-click="class:add('press')">open</button>
+```
+👇 🖱 **Click!** 👇
+``` html
+<button class="press" i-click="class:add('press')">open</button>
+```
+
 Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **2Kb**!
 
-- Simplifies the **clicks**.
+- Simplifies the **click**.
 
 - Simplifies the **scroll**.
 
 - Simplifies **hover**.
-
 
 ## DEMOS
 
