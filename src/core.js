@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let checked = Object.keys(FUNCTION_TREE).map((key) => {
                     // Check METHODS FUNCTION_TREE
                     return FUNCTION_TREE[key].map((method) => {
-                        return RegExp(`^${key}:${method}\\('\\w+'(, *'[#,.,a-zA-Z]\\w*')?\\)$`).test(element.getAttribute(event));
+                        return RegExp(`^${key}:${method}\\('.+'(, *'[.#i\\w][_-\\w0-9]+')?\\)$`).test(element.getAttribute(event));
                     }).some(method => method);
                 }).every(key => key);
                 if(checked) {
