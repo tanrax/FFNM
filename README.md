@@ -18,8 +18,7 @@ Simple utility to **avoid writing Javascript** when working with **classes**. It
 
 ## DEMOS
 
-[Click](https://codepen.io/androsfenollosa/pen/dyGdRVE)
-[Scroll](https://codepen.io/androsfenollosa/pen/xxZQxNV)
+[Click](https://codepen.io/androsfenollosa/pen/dyGdRVE) | [Scroll](https://codepen.io/androsfenollosa/pen/xxZQxNV)
 
 ## Documentation
 
