@@ -2,17 +2,11 @@
 
 Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **2Kb**!
 
-Simplifies the click
+- Simplifies the **clicks**.
 
-Modify others
+- Simplifies the **scroll**.
 
-Simplifies the scroll
-
-Scroll up
-
-Scroll down
-
-Simplifies Hover
+- Simplifies **hover**.
 
 
 ## DEMOS
