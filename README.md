@@ -1,42 +1,19 @@
 # FFNM (Front-End for the next master)
 
-Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **1,7 Kb**!
+Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **2Kb**!
 
 Simplifies the click
 
-![Self click](media/self-click.png)
-
-<p align="center">
-  👇👇👇👇👇👇
-</p>
- 
-![Self clicked](media/self-clicked.png)
-
 Modify others
- 
-![Other click](media/other-click.png)
-
-<p align="center">
-  👇👇👇👇👇👇
-</p>
- 
-![Other clicked](media/other-clicked.png)
 
 Simplifies the scroll
 
-![Other click](media/scroll.png)
-
-<p align="center">
-  👇👇👇👇👇👇
-</p>
- 
 Scroll up
-
-![Other clicked](media/scroll-up.png)
 
 Scroll down
 
-![Other clicked](media/scroll-down.png)
+Simplifies Hover
+
 
 ## DEMOS
 
@@ -56,7 +33,7 @@ Scroll down
 Add to your `<head>` the following tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.1.0/dist/ffnm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.2.0/dist/ffnm.min.js"></script>
 ```
 
 ### Examples
@@ -130,6 +107,34 @@ Add to your `<head>` the following tag.
 <nav i-scroll-down="class:remove('show')"></nav>
 ```
 
+#### Hover
+
+##### Add the class `show` to `div` when hover.
+
+```html
+<div i-hover="class:add('show')"></div>
+```
+
+##### Remove the `show` class from `div` when hover.
+
+```html
+<div i-hover="class:remove('show')"></div>
+```
+
+##### Toggle the `show` class from `div` when hover.
+
+```html
+<div i-hover="class:toggle('show')"></div>
+```
+
+##### Add the class `show` to `#button` when `div` hover.
+
+```html
+<div i-hover="class:toggle('show', '#button')"></div>
+<button id="button">Hi</div>
+```
+
+
 ---
 
 ## Spanish/Español
@@ -139,7 +144,7 @@ Add to your `<head>` the following tag.
 Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.1.0/dist/ffnm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.2.0/dist/ffnm.min.js"></script>
 ```
 
 ### Ejemplos de uso
@@ -211,6 +216,33 @@ Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
 <nav i-scroll-down="class:remove('show')"></nav>
+```
+
+#### Hover
+
+##### Añade la clase `show` al `div` cuando sea hover.
+
+```html
+<div i-hover="class:add('show')"></div>
+```
+
+##### Quita la clase `show` al `div` cuando sea hover.
+
+```html
+<div i-hover="class:remove('show')"></div>
+```
+
+##### Intercambia la clase `show` al `div` cuando sea hover.
+
+```html
+<div i-hover="class:toggle('show')"></div>
+```
+
+##### Añade la clase `show` a `#button` cuando `div` sea hover.
+
+```html
+<div i-hover="class:toggle('show', '#button')"></div>
+<button id="button">Hi</div>
 ```
 
 ---

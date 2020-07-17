@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //===
     // VARIABLES
     //===
-    const EVENTS = ['i-click', 'i-scroll-up', 'i-scroll-down'];
+    const EVENTS = ['i-click', 'i-scroll-up', 'i-scroll-down', 'i-hover'];
     const FUNCTION_TREE = {
         'class': ['add', 'remove', 'toggle']
     };
@@ -139,10 +139,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }, false);
     }
 
+
+    /**
+     * Method add events i-hover
+     * return void
+     */
+    function addEventHover() {
+        let eventHover = 'i-hover';
+        return [...document.querySelectorAll(`[${eventHover}]`)].forEach((element) => {
+            let params = splitParams(element, eventHover);
+            switch(params.functionParent) {
+                case 'class':
+                [...document.querySelectorAll(params.target)].concat(element).forEach((item) => {
+                    // Enter
+                    switch(params.functionChild) {
+                        case 'add':
+                            // Enter
+                            element.addEventListener('mouseenter', () => {
+                                item.classList.add(params.value);
+                            });
+                            // Out
+                            element.addEventListener('mouseout', () => {
+                                item.classList.remove(params.value);
+                            });
+                            break;
+                        case 'remove':
+                            // Enter
+                            element.addEventListener('mouseenter', () => {
+                                item.classList.remove(params.value);
+                            });
+                            // Out
+                            element.addEventListener('mouseout', () => {
+                                item.classList.add(params.value);
+                            });
+                            break;
+                        case 'toggle':
+                            // Enter
+                            element.addEventListener('mouseenter', () => {
+                                item.classList.toggle(params.value);
+                            });
+                            // Out
+                            element.addEventListener('mouseout', () => {
+                                item.classList.toggle(params.value);
+                            });
+                            break;
+                    }
+                });
+                break;
+            }
+       });
+    }
+
     //===
     // INIT
     //===
     validateSyntax();
     addEventClick();
     addEventScroll();
+    addEventHover();
 });
