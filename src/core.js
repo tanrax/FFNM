@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let checked = Object.keys(FUNCTION_TREE).map((key) => {
                     // Check METHODS FUNCTION_TREE
                     return FUNCTION_TREE[key].map((method) => {
-                        return RegExp(`^${key}:${method}\\('.+'(, *'[.#i\\w][_-\\w0-9]+')?\\)$`).test(element.getAttribute(event));
+                        return RegExp(`^${key}:${method}\\('.+'(, ?'[.#i\\w][_-\\w0-9]+')?\\)$`).test(element.getAttribute(event));
                     }).some(method => method);
                 }).every(key => key);
                 if(checked) {
@@ -52,10 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function splitParams(element, attribute) {
         let params = element.getAttribute(attribute);
-        let functionParent = RegExp(`^(\\w+):`).exec(params)[1];
-        let functionChild = RegExp(`:(\\w+)\\(`).exec(params)[1];
-        let value = RegExp(`\\(\'(\\w+)\',?`).exec(params)[1];
-        let resultTarget = RegExp(`, *\'([#,.,a-zA-Z]\\w*)\'\\)`);
+        let functionParent = RegExp("^(\\w+):").exec(params)[1];
+        let functionChild = RegExp(":(\\w+)\\(").exec(params)[1];
+        let value = RegExp("\\(\'(\\w[_-\\w0-9]+)\',?").exec(params)[1];
+        let resultTarget = RegExp(", ?\'([.#i\\w][_-\\w0-9]+)\'\\)");
         let target = resultTarget.exec(params) !== null ? resultTarget.exec(params)[1] : undefined;
         return {'functionParent': functionParent, 'functionChild': functionChild, 'value': value, 'target': target};
     }
@@ -70,7 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
             let params = splitParams(element, eventClick);
             switch(params.functionParent) {
                 case 'class':
-                [...document.querySelectorAll(params.target)].concat(element).forEach((item) => {
+                [...document.querySelectorAll(params.target)].concat(params.target === undefined ? element : undefined).forEach((item) => {
+                    if (item !== undefined) {
                         element.addEventListener('click', () => {
                             switch(params.functionChild) {
                                 case 'add':
@@ -84,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     break;
                             }
                         });
+                    }
                     });
                 break;
             }
@@ -150,39 +152,41 @@ document.addEventListener('DOMContentLoaded', () => {
             let params = splitParams(element, eventHover);
             switch(params.functionParent) {
                 case 'class':
-                [...document.querySelectorAll(params.target)].concat(element).forEach((item) => {
-                    // Enter
-                    switch(params.functionChild) {
-                        case 'add':
-                            // Enter
-                            element.addEventListener('mouseenter', () => {
-                                item.classList.add(params.value);
-                            });
-                            // Out
-                            element.addEventListener('mouseout', () => {
-                                item.classList.remove(params.value);
-                            });
-                            break;
-                        case 'remove':
-                            // Enter
-                            element.addEventListener('mouseenter', () => {
-                                item.classList.remove(params.value);
-                            });
-                            // Out
-                            element.addEventListener('mouseout', () => {
-                                item.classList.add(params.value);
-                            });
-                            break;
-                        case 'toggle':
-                            // Enter
-                            element.addEventListener('mouseenter', () => {
-                                item.classList.toggle(params.value);
-                            });
-                            // Out
-                            element.addEventListener('mouseout', () => {
-                                item.classList.toggle(params.value);
-                            });
-                            break;
+                [...document.querySelectorAll(params.target)].concat(params.target === undefined ? element : undefined).forEach((item) => {
+                    if (item !== undefined) {
+                        // Enter
+                        switch(params.functionChild) {
+                            case 'add':
+                                // Enter
+                                element.addEventListener('mouseenter', () => {
+                                    item.classList.add(params.value);
+                                });
+                                // Out
+                                element.addEventListener('mouseout', () => {
+                                    item.classList.remove(params.value);
+                                });
+                                break;
+                            case 'remove':
+                                // Enter
+                                element.addEventListener('mouseenter', () => {
+                                    item.classList.remove(params.value);
+                                });
+                                // Out
+                                element.addEventListener('mouseout', () => {
+                                    item.classList.add(params.value);
+                                });
+                                break;
+                            case 'toggle':
+                                // Enter
+                                element.addEventListener('mouseenter', () => {
+                                    item.classList.toggle(params.value);
+                                });
+                                // Out
+                                element.addEventListener('mouseout', () => {
+                                    item.classList.toggle(params.value);
+                                });
+                                break;
+                        }
                     }
                 });
                 break;
