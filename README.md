@@ -12,7 +12,7 @@
 <article class="open"></article>
 ```
 
-Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **2Kb**!
+Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **2.5Kb**!
 
 - Simplifies the **click**.
 
@@ -38,7 +38,7 @@ Simple utility to **avoid writing Javascript** when working with **classes**. It
 Add to your `<head>` the following tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.2.2/dist/ffnm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.2.3/dist/ffnm.min.js"></script>
 ```
 
 ### Examples
@@ -149,7 +149,7 @@ Add to your `<head>` the following tag.
 Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.2.2/dist/ffnm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.2.3/dist/ffnm.min.js"></script>
 ```
 
 ### Ejemplos de uso

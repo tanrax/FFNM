@@ -61,12 +61,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
+     * Method that returns all validated elements filtered by an event
+     * return Array
+     */
+    function getElementsValidatesByEvent(nameEvent) {
+        return [...elementsValidates].filter(element => {
+            return element.hasAttribute(nameEvent);
+        });
+    }
+
+    /**
      * Method add events i-click
      * return void
      */
     function addEventClick() {
         let eventClick = 'i-click';
-        return [...document.querySelectorAll(`[${eventClick}]`)].forEach((element) => {
+        return getElementsValidatesByEvent(eventClick).forEach((element) => {
             let params = splitParams(element, eventClick);
             switch(params.functionParent) {
                 case 'class':
@@ -99,11 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function addEventScroll() {
         let eventScrollDown = 'i-scroll-down';
         let eventScrollUp = 'i-scroll-up';
-        let elements = [...document.querySelectorAll(`[${eventScrollDown}]`)];
+        let elementsDown = getElementsValidatesByEvent(eventScrollDown);
+        let elementsUp = getElementsValidatesByEvent(eventScrollUp);
         window.addEventListener("scroll", () => {
             let posScroll = window.pageYOffset || document.documentElement.scrollTop;
             // Scroll down
-            elements.forEach((element) => {
+            elementsDown.forEach((element) => {
                 if (posScroll > lastScrollTop) {
                     let params = splitParams(element, eventScrollDown);
                     switch(params.functionParent) {
@@ -121,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             // Scroll up
-            [...document.querySelectorAll(`[${eventScrollUp}]`)].forEach((element) => {
+            elementsUp.forEach((element) => {
                 if (posScroll <= lastScrollTop) {
                     let params = splitParams(element, eventScrollUp);
                     switch(params.functionParent) {
@@ -149,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function addEventHover() {
         let eventHover = 'i-hover';
-        return [...document.querySelectorAll(`[${eventHover}]`)].forEach((element) => {
+        return getElementsValidatesByEvent(eventHover).forEach((element) => {
             let params = splitParams(element, eventHover);
             switch(params.functionParent) {
                 case 'class':
