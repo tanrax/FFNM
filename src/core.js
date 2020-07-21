@@ -99,10 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function addEventScroll() {
         let eventScrollDown = 'i-scroll-down';
         let eventScrollUp = 'i-scroll-up';
+        let elements = [...document.querySelectorAll(`[${eventScrollDown}]`)];
         window.addEventListener("scroll", () => {
             let posScroll = window.pageYOffset || document.documentElement.scrollTop;
             // Scroll down
-            [...document.querySelectorAll(`[${eventScrollDown}]`)].forEach((element) => {
+            elements.forEach((element) => {
                 if (posScroll > lastScrollTop) {
                     let params = splitParams(element, eventScrollDown);
                     switch(params.functionParent) {
