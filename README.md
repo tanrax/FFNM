@@ -307,6 +307,61 @@ Añade a tu `<head>` la siguiente etiqueta.
 <button id="button">Hi</div>
 ```
 
+#### Visible
+
+##### Añade la clase `ver` en el `div` cuando es visible.
+
+```html
+<div is-visible="class:add('ver')"></div>
+```
+
+##### Quita la clase `ver` en el `div` cuando es visible.
+
+```html
+<div is-visible="class:remove('ver')"></div>
+```
+
+##### Intercambia la clase `ver` cuando el `div` es visible.
+
+```html
+<div is-visible="class:toggle('ver')"></div>
+```
+
+##### Añade la clase `ver` en `#boton` cuando el `div` es visible.
+
+```html
+<div is-visible="class:toggle('ver', '#boton')"></div>
+<button id="boton">Hi</div>
+```
+
+#### No visible
+
+##### Añade la clase `ver` en el `div` cuando no es visible.
+
+```html
+<div is-not-visible="class:add('ver')"></div>
+```
+
+##### Quita la clase `ver` en el `div` cuando no es visible.
+
+```html
+<div is-not-visible="class:remove('ver')"></div>
+```
+
+##### Intercambia la clase `ver` cuando el `div` no es visible.
+
+```html
+<div is-not-visible="class:toggle('ver')"></div>
+```
+
+##### Añade la clase `ver` en `#boton` cuando el `div` no es visible.
+
+```html
+<div is-not-visible="class:toggle('ver', '#boton')"></div>
+<button id="boton">Hi</div>
+```
+
+
 ---
 
 ## Development
