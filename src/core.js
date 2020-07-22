@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //===
     // VARIABLES
     //===
-    const EVENTS = ['is-click', 'is-scroll-up', 'is-scroll-down', 'is-hover', 'is-view', 'is-visible', 'is-not-visible'];
+    const EVENTS = ['is-click', 'is-scroll-up', 'is-scroll-down', 'is-hover', 'is-visible', 'is-not-visible'];
     const FUNCTION_TREE = {
         'class': ['add', 'remove', 'toggle']
     };
@@ -255,7 +255,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         switch(params.functionChild) {
                         case 'add':
                             element.classList.add(params.value);
-                            console.log('date')
                             break;
                         case 'remove':
                             element.classList.remove(params.value);
