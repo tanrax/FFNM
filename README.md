@@ -40,7 +40,7 @@ Simple utility to **avoid writing Javascript** when working with **classes**. It
 Add to your `<head>` the following tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.3.0/dist/ffnm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.3.1/dist/ffnm.min.js"></script>
 ```
 
 ### Examples
@@ -206,7 +206,7 @@ Add to your `<head>` the following tag.
 Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.3.0/dist/ffnm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.3.1/dist/ffnm.min.js"></script>
 ```
 
 ### Ejemplos de uso
