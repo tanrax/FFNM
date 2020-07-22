@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8"/>
-        <title>Test syntax</title>
+        <title>Test is-click</title>
         <script src="../dist/ffnm.min.js"></script>
         <style>
          .nav {
@@ -21,9 +21,9 @@
         </style>
     </head>
     <body>
-        <nav class="nav" id="nav" i-click="class:remove('show')">Mi nav</nav>
-        <button i-click="class:add('show', '#nav')">add</button>
-        <button i-click="class:remove('show', '#nav')">remove</button>
-        <button i-click="class:toggle('show', '#nav')">toggle</button>
+        <nav class="nav" id="nav" is-click="class:remove('show')">Mi nav</nav>
+        <button is-click="class:add('show', '#nav')">add</button>
+        <button is-click="class:remove('show', '#nav')">remove</button>
+        <button is-click="class:toggle('show', '#nav')">toggle</button>
     </body>
 </html>

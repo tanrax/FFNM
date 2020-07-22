@@ -1,18 +1,18 @@
 # FFNM (Front-End for the next master)
 
 ``` html
-<button i-click="class:add('open', 'article')">open</button>
+<button is-click="class:add('open', 'article')">open</button>
 
 <article></article>
 ```
 👇 🖱 **Click!** 👇
 ``` html
-<button i-click="class:add('open', 'article')">open</button>
+<button is-click="class:add('open', 'article')">open</button>
 
 <article class="open"></article>
 ```
 
-Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **2.5Kb**!
+Simple utility to **avoid writing Javascript** when working with **classes**. It only takes up **3.2Kb**!
 
 - Simplifies the **click**.
 
@@ -20,9 +20,11 @@ Simple utility to **avoid writing Javascript** when working with **classes**. It
 
 - Simplifies **hover**.
 
+- Simplifies when the elements are **visible** or not.
+
 ## DEMOS
 
-[Click](https://codepen.io/androsfenollosa/pen/dyGdRVE) | [Scroll](https://codepen.io/androsfenollosa/pen/xxZQxNV)
+[Click](https://codepen.io/androsfenollosa/pen/dyGdRVE) | [Scroll](https://codepen.io/androsfenollosa/pen/xxZQxNV) | [Visible](https://codepen.io/androsfenollosa/pen/YzwBLGW)
 
 ## Documentation
 
@@ -38,7 +40,7 @@ Simple utility to **avoid writing Javascript** when working with **classes**. It
 Add to your `<head>` the following tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.2.3/dist/ffnm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.3.0/dist/ffnm.min.js"></script>
 ```
 
 ### Examples
@@ -48,39 +50,39 @@ Add to your `<head>` the following tag.
 ##### Add the class `press` to `button` when the button is pressed.
 
 ```html
-<button i-click="class:add('press')">open</button>
+<button is-click="class:add('press')">open</button>
 ```
 
 ##### Remove the class `press` to `button` when the button is pressed.
 
 ```html
-<button i-click="class:remove('press')">close</button>
+<button is-click="class:remove('press')">close</button>
 ```
 
 ##### Switch the classs `show` to `button` when the button is pressed.
 
 ```html
-<button i-click="class:toggle('show')">view</button>
+<button is-click="class:toggle('show')">view</button>
 ```
 
 ##### Add the class `show` to the `#nav` selector when the button is pressed.
 
 ```html
-<button i-click="class:add('show', '#nav')">open</button>
+<button is-click="class:add('show', '#nav')">open</button>
 <nav id="nav"></nav>
 ```
 
 ##### Remove the `show` class from the `#nav` selector when the button is pressed.
 
 ```html
-<button i-click="class:remove('show', '#nav')">close</button>
+<button is-click="class:remove('show', '#nav')">close</button>
 <nav id="nav" class="show"></nav>
 ```
 
 ##### Switch the `show` class to the `#nav` selector when the button is pressed.
 
 ```html
-<button i-click="class:toggle('show', '#nav')">view</button>
+<button is-click="class:toggle('show', '#nav')">view</button>
 <nav id="nav" class="show"></nav>
 ```
 
@@ -89,13 +91,13 @@ Add to your `<head>` the following tag.
 ##### Add the class `show` to `nav` when the scroll goes up.
 
 ```html
-<nav i-scroll-up="class:add('show')"></nav>
+<nav is-scroll-up="class:add('show')"></nav>
 ```
 
 ##### Remove the `show` class from `nav` when the scroll goes up.
 
 ```html
-<nav i-scroll-up="class:remove('show')"></nav>
+<nav is-scroll-up="class:remove('show')"></nav>
 ```
 
 #### Scroll down
@@ -103,13 +105,13 @@ Add to your `<head>` the following tag.
 ##### Add the class `show` to `nav` when the scroll down.
 
 ```html
-<nav i-scroll-down="class:add('show')"></nav>
+<nav is-scroll-down="class:add('show')"></nav>
 ```
 
 ##### Remove the `show` class from `nav` when the scroll down.
 
 ```html
-<nav i-scroll-down="class:remove('show')"></nav>
+<nav is-scroll-down="class:remove('show')"></nav>
 ```
 
 #### Hover
@@ -117,27 +119,82 @@ Add to your `<head>` the following tag.
 ##### Add the class `show` to `div` when hover.
 
 ```html
-<div i-hover="class:add('show')"></div>
+<div is-hover="class:add('show')"></div>
 ```
 
 ##### Remove the `show` class from `div` when hover.
 
 ```html
-<div i-hover="class:remove('show')"></div>
+<div is-hover="class:remove('show')"></div>
 ```
 
 ##### Toggle the `show` class from `div` when hover.
 
 ```html
-<div i-hover="class:toggle('show')"></div>
+<div is-hover="class:toggle('show')"></div>
 ```
 
 ##### Add the class `show` to `#button` when `div` hover.
 
 ```html
-<div i-hover="class:toggle('show', '#button')"></div>
+<div is-hover="class:toggle('show', '#button')"></div>
 <button id="button">Hi</div>
 ```
+
+#### Visible
+
+##### Add the class `show` to `div` when is visible.
+
+```html
+<div is-visible="class:add('show')"></div>
+```
+
+##### Remove the `show` class from `div` when is visible.
+
+```html
+<div is-visible="class:remove('show')"></div>
+```
+
+##### Toggle the `show` class from `div` when is visible.
+
+```html
+<div is-visible="class:toggle('show')"></div>
+```
+
+##### Add the class `show` to `#button` when `div` is visible.
+
+```html
+<div is-visible="class:toggle('show', '#button')"></div>
+<button id="button">Hi</div>
+```
+
+#### Not visible
+
+##### Add the class `show` to `div` when is not visible.
+
+```html
+<div is-not-visible="class:add('show')"></div>
+```
+
+##### Remove the `show` class from `div` when is not visible.
+
+```html
+<div is-not-visible="class:remove('show')"></div>
+```
+
+##### Toggle the `show` class from `div` when is not visible.
+
+```html
+<div is-not-visible="class:toggle('show')"></div>
+```
+
+##### Add the class `show` to `#name` when `div` is not visible.
+
+```html
+<div is-not-visible="class:toggle('show', '#button')"></div>
+<input id="name">
+```
+
 
 
 ---
@@ -149,7 +206,7 @@ Add to your `<head>` the following tag.
 Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.2.3/dist/ffnm.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@v1.3.0/dist/ffnm.min.js"></script>
 ```
 
 ### Ejemplos de uso
@@ -159,39 +216,39 @@ Añade a tu `<head>` la siguiente etiqueta.
 ##### Añadir la clase `apretado` a `button` cuando sea pulsado.
 
 ```html
-<button i-click="class:add('apretado')">Apreta</button>
+<button is-click="class:add('apretado')">Apreta</button>
 ```
 
 ##### Quitar la clase `apretado` a `button` cuando sea pulsado.
 
 ```html
-<button i-click="class:remove('apretado')">cerrar</button>
+<button is-click="class:remove('apretado')">cerrar</button>
 ```
 
 ##### Intercambiar la clase `apretado` a `button` cuando sea pulsado.
 
 ```html
-<button i-click="class:toggle('apretado')">ver</button>
+<button is-click="class:toggle('apretado')">ver</button>
 ```
 
 ##### Añadir la clase `show` al selector `#menu` cuando sea pulsado el botón.
 
 ```html
-<button i-click="class:add('show', '#menu')">abrir</button>
+<button is-click="class:add('show', '#menu')">abrir</button>
 <nav id="menu"></nav>
 ```
 
 ##### Quitar la clase `show` al selector `#menu` cuando sea pulsado el botón.
 
 ```html
-<button i-click="class:remove('show', '#menu')">cerrar</button>
+<button is-click="class:remove('show', '#menu')">cerrar</button>
 <nav id="menu" class="show"></nav>
 ```
 
 ##### Intercambiar la clase `show` al selector `#menu` cuando sea pulsado el botón.
 
 ```html
-<button i-click="class:toggle('show', '#menu')">ver</button>
+<button is-click="class:toggle('show', '#menu')">ver</button>
 <nav id="menu" class="show"></nav>
 ```
 
@@ -200,13 +257,13 @@ Añade a tu `<head>` la siguiente etiqueta.
 ##### Añadir la clase `show` al selector `nav` cuando el scroll sube.
 
 ```html
-<nav i-scroll-up="class:add('show')"></nav>
+<nav is-scroll-up="class:add('show')"></nav>
 ```
 
 ##### Quitar la clase `show` al selector `nav` cuando el scroll sube.
 
 ```html
-<nav i-scroll-up="class:remove('show')"></nav>
+<nav is-scroll-up="class:remove('show')"></nav>
 ```
 
 #### Bajar scroll
@@ -214,13 +271,13 @@ Añade a tu `<head>` la siguiente etiqueta.
 ##### Añadir la clase `show` al selector `nav` cuando el scroll baja.
 
 ```html
-<nav i-scroll-down="class:add('show')"></nav>
+<nav is-scroll-down="class:add('show')"></nav>
 ```
 
 ##### Quitar la clase `show` al selector `nav` cuando el scroll baja.
 
 ```html
-<nav i-scroll-down="class:remove('show')"></nav>
+<nav is-scroll-down="class:remove('show')"></nav>
 ```
 
 #### Hover
@@ -228,25 +285,25 @@ Añade a tu `<head>` la siguiente etiqueta.
 ##### Añade la clase `show` al `div` cuando sea hover.
 
 ```html
-<div i-hover="class:add('show')"></div>
+<div is-hover="class:add('show')"></div>
 ```
 
 ##### Quita la clase `show` al `div` cuando sea hover.
 
 ```html
-<div i-hover="class:remove('show')"></div>
+<div is-hover="class:remove('show')"></div>
 ```
 
 ##### Intercambia la clase `show` al `div` cuando sea hover.
 
 ```html
-<div i-hover="class:toggle('show')"></div>
+<div is-hover="class:toggle('show')"></div>
 ```
 
 ##### Añade la clase `show` a `#button` cuando `div` sea hover.
 
 ```html
-<div i-hover="class:toggle('show', '#button')"></div>
+<div is-hover="class:toggle('show', '#button')"></div>
 <button id="button">Hi</div>
 ```
 

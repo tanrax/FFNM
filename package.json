@@ -1,6 +1,6 @@
 {
   "name": "ffnm",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "description": "Simple plugin to avoid writing Javascript in trivial tasks.",
   "main": "gulpfile.js",
   "dependencies": {

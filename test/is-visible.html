@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Test is-visible</title>
+        <script src="../dist/ffnm.min.js"></script>
+        <link href="https://unpkg.com/spectre.css/dist/spectre.min.css" rel="stylesheet"/>
+        <style>
+         .image-1 {
+             transition: 1s;
+             transform: translateY(-2rem);
+             opacity: 0;
+         }
+
+         .image-2 {
+             transform: scale(.5);
+             transition: 1s;
+             opacity: 0;
+         }
+
+         .show {
+             transform: scale(1) translateY(0);
+             opacity: 1;
+         }
+        </style>
+    </head>
+    <body>
+        <div class="hero hero-lg">
+            <div class="hero-body">
+                <h1 class="text-center">Please scroll down</h1>
+            </div>
+        </div>
+
+        <p class="text-center">
+            <img is-visible="class:add('show')" class="image-1" src="https://source.unsplash.com/random/500x300?cat" alt="Image 1">
+        </p>
+
+        <p class="text-center">
+            <img is-visible="class:add('show')" is-not-visible="class:remove('show')" class="image-2" src="https://source.unsplash.com/random/500x300?dog" alt="Image 2">
+        </p>
+
+        <p class="text-center">
+            <img is-visible="class:add('show')" is-not-visible="class:remove('show')" class="image-1" src="https://source.unsplash.com/random/500x300?koala" alt="Image 1">
+        </p>
+
+    </body>
+</html>

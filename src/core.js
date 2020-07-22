@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //===
     // VARIABLES
     //===
-    const EVENTS = ['i-click', 'i-scroll-up', 'i-scroll-down', 'i-hover'];
+    const EVENTS = ['is-click', 'is-scroll-up', 'is-scroll-down', 'is-hover', 'is-view', 'is-visible', 'is-not-visible'];
     const FUNCTION_TREE = {
         'class': ['add', 'remove', 'toggle']
     };
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Method return params
      * return JSON - {'functionParent': '', 'functionChild': '', 'value': '', 'target': ''}
-     * example - i-click="class:add('show', '#menu')"
+     * example - is-click="class:add('show', '#menu')"
      * return {'functionParent': 'class', 'functionChild': 'add', 'value': 'show', 'target': '#menu'}
      */
     function splitParams(element, attribute) {
@@ -71,11 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Method add events i-click
+     * Method add events is-click
      * return void
      */
     function addEventClick() {
-        let eventClick = 'i-click';
+        let eventClick = 'is-click';
         return getElementsValidatesByEvent(eventClick).forEach((element) => {
             let params = splitParams(element, eventClick);
             switch(params.functionParent) {
@@ -103,12 +103,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /**
-     * Method add events i-scroll
+     * Method add events is-scroll
      * return void
      */
     function addEventScroll() {
-        let eventScrollDown = 'i-scroll-down';
-        let eventScrollUp = 'i-scroll-up';
+        let eventScrollDown = 'is-scroll-down';
+        let eventScrollUp = 'is-scroll-up';
         let elementsDown = getElementsValidatesByEvent(eventScrollDown);
         let elementsUp = getElementsValidatesByEvent(eventScrollUp);
         window.addEventListener("scroll", () => {
@@ -155,11 +155,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /**
-     * Method add events i-hover
+     * Method add events is-hover
      * return void
      */
     function addEventHover() {
-        let eventHover = 'i-hover';
+        let eventHover = 'is-hover';
         return getElementsValidatesByEvent(eventHover).forEach((element) => {
             let params = splitParams(element, eventHover);
             switch(params.functionParent) {
@@ -206,6 +206,68 @@ document.addEventListener('DOMContentLoaded', () => {
        });
     }
 
+    /**
+     * Method that checks if an element is visible in the viewport
+     * return bool
+     */
+    function isInViewport (element) {
+	      let distance = element.getBoundingClientRect();
+	      return distance.top >= 0 &&
+		           distance.left >= 0 &&
+		           distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+		           distance.right <= (window.innerWidth || document.documentElement.clientWidth);
+    };
+
+    /**
+     * Method that manages the events is-visible and is-not-visible
+     * return void
+     */
+    function addEventVisible() {
+        let eventVisible = 'is-visible';
+        let eventNotVisible = 'is-not-visible';
+        let elementsVisibles = getElementsValidatesByEvent(eventVisible);
+        let elementsNotVisibles = getElementsValidatesByEvent(eventNotVisible);
+        window.addEventListener("scroll", () => {
+            // Visible
+            elementsVisibles.forEach((element) => {
+                if (isInViewport(element)) {
+                    let params = splitParams(element, eventVisible);
+                    switch(params.functionParent) {
+                    case 'class':
+                        switch(params.functionChild) {
+                        case 'add':
+                            element.classList.add(params.value);
+                            break;
+                        case 'remove':
+                            element.classList.remove(params.value);
+                            break;
+                        }
+                        break;
+                    }
+                }
+            });
+            // Not visible
+            elementsNotVisibles.forEach((element) => {
+                if (!isInViewport(element)) {
+                    let params = splitParams(element, eventNotVisible);
+                    switch(params.functionParent) {
+                    case 'class':
+                        switch(params.functionChild) {
+                        case 'add':
+                            element.classList.add(params.value);
+                            console.log('date')
+                            break;
+                        case 'remove':
+                            element.classList.remove(params.value);
+                            break;
+                        }
+                        break;
+                    }
+                }
+            });
+        }, false);
+    }
+
     //===
     // INIT
     //===
@@ -213,4 +275,5 @@ document.addEventListener('DOMContentLoaded', () => {
     addEventClick();
     addEventScroll();
     addEventHover();
+    addEventVisible();
 });
