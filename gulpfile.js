@@ -45,7 +45,7 @@ const build = series(js);
 // gulp dev
 exports.dev = function () {
     build();
-    watch(SRC_PATH + '*.js', js);
+    watch(SRC_PATH + '**/*.js', js);
 }
 
 // gulp
