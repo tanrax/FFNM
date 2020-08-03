@@ -138,7 +138,7 @@ Add to your `<head>` the following tag.
 
 ```html
 <div is-hover="class:toggle('show', '#button')"></div>
-<button id="button">Hi</div>
+<button id="button">Hi</button>
 ```
 
 #### Visible
@@ -165,7 +165,7 @@ Add to your `<head>` the following tag.
 
 ```html
 <div is-visible="class:toggle('show', '#button')"></div>
-<button id="button">Hi</div>
+<button id="button">Hi</button>
 ```
 
 #### Not visible
@@ -304,7 +304,7 @@ Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
 <div is-hover="class:toggle('show', '#button')"></div>
-<button id="button">Hi</div>
+<button id="button">Hi</button>
 ```
 
 #### Visible
@@ -331,7 +331,7 @@ Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
 <div is-visible="class:toggle('ver', '#boton')"></div>
-<button id="boton">Hi</div>
+<button id="boton">Hi</button>
 ```
 
 #### No visible
@@ -358,7 +358,7 @@ Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
 <div is-not-visible="class:toggle('ver', '#boton')"></div>
-<button id="boton">Hi</div>
+<button id="boton">Hi</button>
 ```
 
 
