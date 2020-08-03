@@ -12,10 +12,12 @@ function addEventVisible() {
     let eventNotVisible = 'is-not-visible';
     let elementsVisibles = getElementsValidatesByEvent(eventVisible);
     let elementsNotVisibles = getElementsValidatesByEvent(eventNotVisible);
-    window.addEventListener("scroll", () => {
-        // Visible
-        elementsVisibles.forEach((element) => {
-            if (isInViewport(element)) {
+
+    // Visible
+    const onIntersectionVisible = (entries) => {
+        entries.forEach((entry) => {
+            let element = entry.target;
+            if (entry.isIntersecting) {
                 let params = splitParams(element, eventVisible);
                 switch(params.functionParent) {
                 case 'class':
@@ -31,9 +33,17 @@ function addEventVisible() {
                 }
             }
         });
-        // Not visible
-        elementsNotVisibles.forEach((element) => {
-            if (!isInViewport(element)) {
+    };
+    const observerVisible = new IntersectionObserver(onIntersectionVisible);
+    elementsVisibles.forEach((element) => {
+        observerVisible.observe(element);
+    });
+
+    // Not visible
+    const onIntersectionNotVisible = (entries) => {
+        entries.forEach((entry) => {
+            let element = entry.target;
+            if (!entry.isIntersecting) {
                 let params = splitParams(element, eventNotVisible);
                 switch(params.functionParent) {
                 case 'class':
@@ -49,6 +59,11 @@ function addEventVisible() {
                 }
             }
         });
-    }, false);
+    };
+
+    const observerNotVisible = new IntersectionObserver(onIntersectionNotVisible);
+    elementsNotVisibles.forEach((element) => {
+        observerNotVisible.observe(element);
+    });
 }
 
