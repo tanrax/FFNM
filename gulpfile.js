@@ -19,7 +19,15 @@ const DIST_JS = 'ffnm.min.js';
 
 // JS concat + sourcemaps + babel + min
 function js(cb) {
-    return src([SRC_PATH + 'core.js'])
+    return src([
+        SRC_PATH + 'globals.js',
+        SRC_PATH + 'syntax.js',
+        SRC_PATH + 'events/click.js',
+        SRC_PATH + 'events/scroll.js',
+        SRC_PATH + 'events/hover.js',
+        SRC_PATH + 'events/visible.js',
+        SRC_PATH + 'core.js'
+    ])
         .pipe(sourcemaps.init())
         .pipe(concat(DIST_JS))
         .pipe(uglify())
