@@ -206,7 +206,7 @@ Add to your `<head>` the following tag.
 Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@1.4.0/dist/ffnm.min.js" integrity="sha384-lAUBI0wOuUBOb4gGjqjeuJlFgrl1YixuQdG/OngLda/8+ZPThlN2xk+EJAkl7gEd" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@1.4.0/dist/ffnm.min.js" integrity="sha384-lAUBI0wOuUBOb4gGjqjeuJlFgrl1YixuQdG/OngLda/8+ZPThlN2xk+EJAkl7gEd" crossorigin="anonymous"></script>
 ```
 
 ### Ejemplos de uso
