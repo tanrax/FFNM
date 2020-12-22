@@ -114,6 +114,21 @@ Add to your `<head>` the following tag.
 <nav is-scroll-down="class:remove('show')"></nav>
 ```
 
+#### Scroll top
+
+##### Add the class `show` to `nav` when the scroll is top of the page.
+
+```html
+<nav is-scroll-top="class:add('show')"></nav>
+```
+
+##### Remove the `show` class from `nav` when the scroll top of the page.
+
+```html
+<nav is-scroll-top="class:remove('show')"></nav>
+```
+
+
 #### Hover
 
 ##### Add the class `show` to `div` when hover.
@@ -194,8 +209,6 @@ Add to your `<head>` the following tag.
 <div is-not-visible="class:toggle('show', '#button')"></div>
 <input id="name">
 ```
-
-
 
 ---
 
@@ -278,6 +291,20 @@ Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
 <nav is-scroll-down="class:remove('show')"></nav>
+```
+
+#### Scroll esta arriba de la pagina (principio)
+
+##### Añadir la clase `show` al selector `nav` cuando el scroll esta al inicio.
+
+```html
+<nav is-scroll-top="class:add('show')"></nav>
+```
+
+##### Quitar la clase `show` al selector `nav` cuando el scroll esta al inicio.
+
+```html
+<nav is-scroll-top="class:remove('show')"></nav>
 ```
 
 #### Hover

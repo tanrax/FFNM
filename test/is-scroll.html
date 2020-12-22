@@ -15,6 +15,22 @@
              transition: 1s;
              transform: translateY(10rem);
          }
+
+         .top {
+             position: fixed;
+             top: 0;
+             left: 0;
+             right: 0;
+             height: 5rem;
+             color: white;
+             background: red;
+             transition: 1s;
+             transform: translateY(-10rem);
+             display: flex;
+             justify-content: center;
+             align-items: center;
+         }
+
          .show {
              transform: translateY(0);
          }
@@ -22,6 +38,7 @@
     </head>
     <body>
         <nav is-scroll-down="class:remove('show')" is-scroll-up="class:add('show')" class="nav" id="nav">Mi nav</nav>
+        <div is-scroll-top="class:add('show')" class="top show">You is top page</div>
         <p is-scroll-down="class:toggle('ala')">
             Ullamcorper morbi tincidunt ornare massa, eget egestas purus viverra accumsan in nisl nisi, scelerisque eu ultrices. Sapien et ligula ullamcorper malesuada proin libero nunc, consequat interdum varius sit amet, mattis.
         </p>
