@@ -40,7 +40,7 @@ Simple utility to **avoid writing Javascript** when working with **classes**. It
 Add to your `<head>` the following tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@1.4.0/dist/ffnm.min.js" integrity="sha384-WsAoFj8H5Jl3+nG7ON5XXiozrADpSLshx/XdN7xu2GUVkJEZB5C3AGrFtdi6tARh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@1.5.0/dist/ffnm.min.js" integrity="sha384-qlI8XJcMcJMh52x4w9HA9ItB8KmW6pKaJXijVQFl6UvT1nGCH+U6Y7sbbc11HkCH" crossorigin="anonymous"></script>
 ```
 
 ### Examples
@@ -219,7 +219,7 @@ Add to your `<head>` the following tag.
 Añade a tu `<head>` la siguiente etiqueta.
 
 ```html
- <script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@1.4.0/dist/ffnm.min.js" integrity="sha384-lAUBI0wOuUBOb4gGjqjeuJlFgrl1YixuQdG/OngLda/8+ZPThlN2xk+EJAkl7gEd" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/tanrax/FFNM@1.5.0/dist/ffnm.min.js" integrity="sha384-qlI8XJcMcJMh52x4w9HA9ItB8KmW6pKaJXijVQFl6UvT1nGCH+U6Y7sbbc11HkCH" crossorigin="anonymous"></script>
 ```
 
 ### Ejemplos de uso
